@@ -1,6 +1,7 @@
 package com.aws.codestar.projecttemplates.controller;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,8 +16,14 @@ public class OAuth2ProtectedController {
     }
 
     @RequestMapping(value = { "/protected", "/restricted", "/api/protected", "/api/restricted" })
-    public ResponseEntity helloProtectedWorld() {
+    public ResponseEntity helloAuthenticatedPeople() {
         return ResponseEntity.ok("{\"Output\":\"OAuth2 protected secret lair!!!\"}");
+    }
+
+    @PreAuthorize("hasAuthority('admins')")
+    @RequestMapping(value = { "/admin" })
+    public ResponseEntity helloAdmins() {
+        return ResponseEntity.ok("{\"Output\":\"OAuth2 protected secret lair, for ADMINS only (need to be in the 'admins' group)\"}");
     }
 
 }

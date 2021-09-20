@@ -20,7 +20,7 @@ public class OAuth2ProtectedController {
         return ResponseEntity.ok("{\"Output\":\"OAuth2 protected secret lair!!!\"}");
     }
 
-    @PreAuthorize("hasAuthority('admins')")
+    @PreAuthorize("hasAuthority('Admins')")
     @RequestMapping(value = { "/admin", "/api/admin" })
     public ResponseEntity helloAdmins() {
         return ResponseEntity.ok("{\"Output\":\"OAuth2 protected secret lair, for ADMINS only (need to be in the 'admins' group)\"}");

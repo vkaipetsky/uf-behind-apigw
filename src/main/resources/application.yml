@@ -2,7 +2,8 @@
 #  port : 8081
 okta:
   oauth2:
-#    issuer: https://id.unicorn-finance-dev.com/oauth2/auszuppqsU0dhKv5B1d6
-#    client-id: 0oa1dzn43m34zdqan1d7 # This client is on https://id.unicorn-finance-dev.com/oauth2/auszuppqsU0dhKv5B1d6
-    issuer: https://dev-79177292.okta.com/oauth2/default
-    client-id: 0oa1naeaceCQABzDq5d7 # This client is on https://dev-79177292.okta.com
+#    issuer: https://dev-79177292.okta.com/oauth2/default
+#    client-id: 0oa1naeaceCQABzDq5d7 # This client is on https://dev-79177292.okta.com
+    issuer: https://id.unicorn-finance-dev.com/oauth2/auszuppqsU0dhKv5B1d6
+    audience: api://jpm-demo.developer.unidemo.info
+    client-id: 0oa1dzn43m34zdqan1d7 # This client is on https://id.unicorn-finance-dev.com/oauth2/auszuppqsU0dhKv5B1d6

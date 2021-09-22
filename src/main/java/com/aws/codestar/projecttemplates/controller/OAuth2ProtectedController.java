@@ -26,4 +26,17 @@ public class OAuth2ProtectedController {
         return ResponseEntity.ok("{\"Output\":\"OAuth2 protected secret lair, for ADMINS only (need to be in the 'admins' group)\"}");
     }
 
+//    @PreAuthorize("#oauth2.hasScope('defaultScope')") // TODO: sadly this crashes not being able to find the oauth2 object
+    @PreAuthorize("hasAnyAuthority('SCOPE_defaultScope')")
+    @RequestMapping(value = { "/scoped", "/api/scoped" })
+    public ResponseEntity helloScope() {
+        return ResponseEntity.ok("{\"Output\":\"OAuth2 scope protected secret lair - scoped to 'defaultScope'\"}");
+    }
+
+    @PreAuthorize("hasAnyAuthority('SCOPE_developerApp')")
+    @RequestMapping(value = { "/devapp", "/api/devapp" })
+    public ResponseEntity helloScopedApp() {
+        return ResponseEntity.ok("{\"Output\":\"OAuth2 scope protected secret lair - scoped to 'developerApp'\"}");
+    }
+
 }
